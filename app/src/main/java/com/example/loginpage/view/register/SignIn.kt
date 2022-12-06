@@ -3,20 +3,24 @@ package com.example.loginpage.view.register
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.loginpage.databinding.ActivitySignInBinding
 import com.example.loginpage.view.login.LogIn
+import com.example.loginpage.view.main.Main
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import com.google.firebase.firestore.FirebaseFirestore
 
 class SignIn : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignInBinding
     private val auth = FirebaseAuth.getInstance()
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,30 +28,51 @@ class SignIn : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnRegister.setOnClickListener {view ->
+
+            val name = binding.nameRegister.text.toString()
+            val tel = binding.telRegister.text.toString()
             val email = binding.emailRegister.text.toString()
             val password = binding.passwordRegister.text.toString()
+            val confirmPassword = binding.passwordConfirmRegister.text.toString()
 
-            if (email.isEmpty() || password.isEmpty()){
-                val snackbar = Snackbar.make(view,"Fill in all fields!",Snackbar.LENGTH_SHORT)
+            val userMap = hashMapOf(
+                "nome" to name,
+                "celular" to tel
+            )
+            db.collection("Users").document(name)
+                .set(userMap).addOnCompleteListener {
+                    Log.d("db", "Sucesso ao salvar usuário!")
+                }.addOnFailureListener {
+
+                }
+            if (name.isEmpty() ||email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()){
+                val snackbar = Snackbar.make(view,"Preencha todos os campos!",Snackbar.LENGTH_SHORT)
                 snackbar.setBackgroundTint(Color.RED)
                 snackbar.show()
-            }else{
+            }else if (password != confirmPassword){
+                val snackbar = Snackbar.make(view,"Suas senhas devem ser iguais!",Snackbar.LENGTH_SHORT)
+                snackbar.setBackgroundTint(Color.RED)
+                snackbar.show()
+            } else {
                 auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener { register ->
                     if (register.isSuccessful){
-                        val snackbar = Snackbar.make(view,"Success in registering user!",Snackbar.LENGTH_SHORT)
+                        val snackbar = Snackbar.make(view,"Sucesso ao registrar usuario!",Snackbar.LENGTH_SHORT)
                         snackbar.setBackgroundTint(Color.BLUE)
                         snackbar.show()
                         binding.emailRegister.setText("")
                         binding.passwordRegister.setText("")
+                        binding.nameRegister.setText("")
+                        binding.passwordConfirmRegister.setText("")
+                        binding.telRegister.setText("")
                     }
                 }.addOnFailureListener {exception ->
 
                     val messageError = when(exception){
-                        is FirebaseAuthWeakPasswordException -> "Enter a password with at least 6 characters!"
-                        is FirebaseAuthInvalidCredentialsException -> "Enter a valid email address!"
-                        is FirebaseAuthUserCollisionException -> "This email is already registered!"
-                        is FirebaseNetworkException -> "No internet connection!"
-                        else -> "Error a register to user!"
+                        is FirebaseAuthWeakPasswordException -> "Sua senha deve conter no minimo 6 caracteres!"
+                        is FirebaseAuthInvalidCredentialsException -> "Digite um email valido!"
+                        is FirebaseAuthUserCollisionException -> "Email ja registrado, faca o login!"
+                        is FirebaseNetworkException -> "Sem conexao com a internet!"
+                        else -> "Erro ao tentar cadastrar usuário!"
                     }
                     val snackbar = Snackbar.make(view,messageError,Snackbar.LENGTH_SHORT)
                     snackbar.setBackgroundTint(Color.RED)

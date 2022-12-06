@@ -33,7 +33,7 @@ class LogIn : AppCompatActivity() {
             val password = binding.passwordEnter.text.toString()
 
             if (email.isEmpty() || password.isEmpty()){
-                val snackbar = Snackbar.make(view,"Fill in all fields!", Snackbar.LENGTH_SHORT)
+                val snackbar = Snackbar.make(view,"Preencha todos os campos!", Snackbar.LENGTH_SHORT)
                 snackbar.setBackgroundTint(Color.RED)
                 snackbar.show()
             }else{
@@ -42,7 +42,7 @@ class LogIn : AppCompatActivity() {
                         navegationToMain()
                     }
                 }.addOnFailureListener {
-                    val snackbar = Snackbar.make(view,"Error when trying to login, please enter valid information!", Snackbar.LENGTH_SHORT)
+                    val snackbar = Snackbar.make(view,"Erro ao tentar entrar, por favor insira informações válidas!", Snackbar.LENGTH_SHORT)
                     snackbar.setBackgroundTint(Color.RED)
                     snackbar.show()
                 }

@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="@string/login_text_h1"
             android:textColor="@color/roxo"
-            android:textSize="55sp"
+            android:textSize="52sp"
             android:textStyle="bold"
             android:layout_marginTop="100dp"
             android:layout_marginStart="30dp"
@@ -36,12 +36,36 @@
             />
 
         <EditText
+            android:id="@+id/nameRegister"
+            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="46dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:hint="@string/hint_name"
+            />
+
+        <EditText
+            android:id="@+id/telRegister"
+            android:inputType="numberSigned"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:hint="@string/hint_tel"
+            />
+
+        <EditText
             android:id="@+id/emailRegister"
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:layout_marginTop="46dp"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:hint="@string/hint_email_signin"
@@ -49,7 +73,7 @@
 
         <EditText
             android:id="@+id/passwordRegister"
-            android:inputType="textPassword"
+            android:inputType="numberPassword"
             android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,14 +81,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:hint="@string/hint_password_signin"
-            />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_visibility_24"
-            android:layout_marginTop="-34dp"
-            android:layout_marginStart="350dp"
+            android:drawableRight="@drawable/ic_baseline_visibility_24"
             />
 
         <TextView
@@ -76,6 +93,18 @@
             android:textSize="12sp"
             android:textStyle="bold"
             android:textColor="@color/cinza"
+            />
+        <EditText
+            android:id="@+id/passwordConfirmRegister"
+            android:inputType="numberPassword"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:hint="@string/hint_confirm_password"
+            android:drawableRight="@drawable/ic_baseline_visibility_24"
             />
 
         <Button

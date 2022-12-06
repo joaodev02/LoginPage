@@ -1,33 +1,33 @@
 <resources>
     <string name="app_name">LoginPage</string>
 
-    <string name="login_text_h1">Hi! \nWelcome</string>
-    <string name="login_text_h2">Im waiting for you, please enter your detail</string>
+    <string name="login_text_h1">Olá! \nBem-Vindo</string>
+    <string name="login_text_h2">Estavamos esperando por você, por favor, digite seus dados.</string>
     <string name="hint_email_login">Email</string>
-    <string name="hint_password_login">Password</string>
-    <string name="check_box">Remember Me</string>
-    <string name="forgot_password">Forgot Password?</string>
-    <string name="button_login">Log In</string>
+    <string name="hint_password_login">Senha</string>
+    <string name="check_box">Manter login</string>
+    <string name="forgot_password">Esqueceu a senha?</string>
+    <string name="button_login">Entrar</string>
 
-    <string name="dont_account">Don\'t have account ?</string>
-    <string name="account_signup">Sign Up</string>
-    <string name="forgot_text_h1">Oh, no! \nI forget</string>
-    <string name="forgot_text_h2">Enter your email, or username and we\'ll \nsend you a link to change a new password</string>
-    <string name="hint_recovery">Username or Email</string>
-    <string name="button_forgot">Forgot Password</string>
+    <string name="dont_account">Não possui conta ?</string>
+    <string name="account_signup">Registre-se</string>
+    <string name="forgot_text_h1">Ah, não! \nO que faço agora?</string>
+    <string name="forgot_text_h2">Digite seu email,\nenviaremos um link para a redefinição de senha</string>
+    <string name="hint_recovery">Email</string>
+    <string name="button_forgot">Redefinir senha</string>
 
-    <string name="create_account_h2">Let\'s create an account</string>
+    <string name="create_account_h2">Vamos criar sua conta! Por favor digite seus dados.</string>
     <string name="create_account_h4">Let\'s create an account</string>
     <string name="hint_email_signin">Email</string>
-    <string name="hint_name">Full Name</string>-->
-    <string name="hint_username">Username</string>-->
-    <string name="hint_password_signin">Password</string>
-    <string name="text_password">Must contain a number and least of 6 characters</string>
-    <string name="hint_confirm_password">Confirm Password</string>-->
-    <string name="text_confirm_password">Must contain a number and least of 6 characters</string>-->
-    <string name="button_signin">Sign In</string>
-    <string name="have_account">Have an account ?</string>
-    <string name="account_login">Log In</string>
+    <string name="hint_name">Nome completo</string>
+    <string name="hint_tel">Celular</string>
+    <string name="hint_password_signin">Senha</string>
+    <string name="text_password">Sua senha deve conter no minimo 6 caracteres!</string>
+    <string name="hint_confirm_password">Confirme sua senha</string>-->
+    <string name="text_confirm_password">Sua senha deve conter no minimo 6 caracteres!</string>
+    <string name="button_signin">Cadastrar</string>
+    <string name="have_account">Já possui uma conta ?</string>
+    <string name="account_login">Entrar</string>
 
     <string name="btn_deslogar">Deslogar</string>
 

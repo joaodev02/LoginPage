@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.loginpage.R
 import com.example.loginpage.databinding.ActivityMainBinding
+import com.example.loginpage.view.login.LogIn
 import com.example.loginpage.view.register.SignIn
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Main : AppCompatActivity() {
 
@@ -19,7 +21,7 @@ class Main : AppCompatActivity() {
 
         binding.btnDeslogar.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            val voltarTelaLogin = Intent(this,SignIn::class.java)
+            val voltarTelaLogin = Intent(this,LogIn::class.java)
             startActivity(voltarTelaLogin)
             finish()
         }
