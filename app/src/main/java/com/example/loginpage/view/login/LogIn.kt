@@ -4,18 +4,11 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
-import com.example.loginpage.R
 import com.example.loginpage.databinding.ActivityLogInBinding
 import com.example.loginpage.view.main.Main
-import com.example.loginpage.view.register.SignIn
+import com.example.loginpage.view.register.Register
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthEmailException
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException
-import com.google.firebase.ktx.Firebase
 
 class LogIn : AppCompatActivity() {
 
@@ -50,7 +43,7 @@ class LogIn : AppCompatActivity() {
         }
 
         binding.signUp.setOnClickListener {
-            val intent = Intent(this, SignIn::class.java)
+            val intent = Intent(this, Register::class.java)
             startActivity(intent)
         }
     }

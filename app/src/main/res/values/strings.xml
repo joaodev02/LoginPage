@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">LoginPage</string>
 
+<!--  Login Page  -->
+
     <string name="login_text_h1">Olá! \nBem-Vindo</string>
     <string name="login_text_h2">Estavamos esperando por você, por favor, digite seus dados.</string>
     <string name="hint_email_login">Email</string>
@@ -9,12 +11,16 @@
     <string name="forgot_password">Esqueceu a senha?</string>
     <string name="button_login">Entrar</string>
 
+    <!--  Recuperar conta  -->
+
     <string name="dont_account">Não possui conta ?</string>
     <string name="account_signup">Registre-se</string>
     <string name="forgot_text_h1">Ah, não! \nO que faço agora?</string>
     <string name="forgot_text_h2">Digite seu email,\nenviaremos um link para a redefinição de senha</string>
     <string name="hint_recovery">Email</string>
     <string name="button_forgot">Redefinir senha</string>
+
+    <!--  Register Page  -->
 
     <string name="create_account_h2">Vamos criar sua conta! Por favor digite seus dados.</string>
     <string name="create_account_h4">Let\'s create an account</string>
@@ -29,6 +35,9 @@
     <string name="have_account">Já possui uma conta ?</string>
     <string name="account_login">Entrar</string>
 
+    <!--  Main Page  -->
+
     <string name="btn_deslogar">Deslogar</string>
+    <string name="btn_verperfil">Ver informações</string>
 
 </resources>

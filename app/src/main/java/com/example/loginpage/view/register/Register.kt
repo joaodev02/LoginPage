@@ -7,7 +7,6 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.loginpage.databinding.ActivitySignInBinding
 import com.example.loginpage.view.login.LogIn
-import com.example.loginpage.view.main.Main
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
@@ -16,12 +15,12 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.google.firebase.firestore.FirebaseFirestore
 
-class SignIn : AppCompatActivity() {
+class Register : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignInBinding
     private val auth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
-
+    private val idItem = System.currentTimeMillis().toInt()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
@@ -35,11 +34,13 @@ class SignIn : AppCompatActivity() {
             val password = binding.passwordRegister.text.toString()
             val confirmPassword = binding.passwordConfirmRegister.text.toString()
 
+
             val userMap = hashMapOf(
                 "nome" to name,
+                "email" to email,
                 "celular" to tel
             )
-            db.collection("Users").document(name)
+            db.collection("Users").document(idItem.toString())
                 .set(userMap).addOnCompleteListener {
                     Log.d("db", "Sucesso ao salvar usuário!")
                 }.addOnFailureListener {
@@ -80,6 +81,7 @@ class SignIn : AppCompatActivity() {
                 }
             }
         }
+
         binding.logIn.setOnClickListener {
             val intent = Intent(this, LogIn::class.java)
             startActivity(intent)
